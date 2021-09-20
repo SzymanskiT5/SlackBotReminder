@@ -1,0 +1,4 @@
+/venv/
+bot_base.db
+.idea/
+__pycache__/
