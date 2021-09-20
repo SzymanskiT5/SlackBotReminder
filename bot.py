@@ -4,6 +4,7 @@ import os
 BOT_TOKEN =
 SLACK_TOKEN =
 
+
 class SlackBot:
     def __init__(self):
         self.bot_token = BOT_TOKEN
@@ -26,7 +27,7 @@ class SlackBot:
         try:
             self.client.chat_postMessage(channel="U02E3T7JMMH",
                                     text="Cześć! Ostatni call już za Tobą. Daj znać @Kacper Garbaciński - Devs Mentoring, jeżeli planujesz nie przedłużać abonamentu ",
-                                    token="xoxb-1591793740982-2503927576400-Kk7j2xrQAKKwLpADfXQKvXyf")
+                                    token=self.bot_token)
         except SlackApiError as e:
             assert e.response['error']
 
