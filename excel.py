@@ -1,8 +1,10 @@
 from openpyxl import load_workbook
 import re
-from database import Student
+# from database import Student
 from constans import DATE_REGEX, MONTH_REGEX
-from database import db
+from main import db
+from models import Student
+# from database import db
 
 
 class SheetScraper:
