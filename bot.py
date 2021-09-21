@@ -3,8 +3,8 @@ from typing import List
 import slack
 from slack.errors import SlackApiError
 
-BOT_TOKEN = "xoxb-1591793740982-2503927576400-Kk7j2xrQAKKwLpADfXQKvXyf"
-SLACK_TOKEN = "xoxp-1591793740982-2479925633731-2480302224514-7fb52577608bd9ed4e381562deb41478"
+BOT_TOKEN =
+SLACK_TOKEN =
 
 
 class SlackBot:
