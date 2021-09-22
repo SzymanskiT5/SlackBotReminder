@@ -1,3 +1,4 @@
-slackclient
-sqlalchemy
-sqlalchemy-utils
+slackclient==2.9.3
+SQLAlchemy==1.4.23
+SQLAlchemy-Utils==0.37.8
+openpyxl~=3.0.8
