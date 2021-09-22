@@ -1,7 +1,5 @@
-
 from bot import SlackBot
 from database import Database
-
 
 db = Database()
 
@@ -16,10 +14,12 @@ def main() -> None:
     scraper.iterate_rows()
     list_of_students = scraper.list_of_students
     if list_of_students:
-        list_of_id = bot.get_users_list(list_of_students)
-        bot.send_message(list_of_id)
+        bot.get_users_list(list_of_students)
+        bot.send_message()
+        print("Messages sended!")
     else:
         print("Everything is up to date")
+
 
 if __name__ == "__main__":
     main()

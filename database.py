@@ -3,7 +3,6 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy_utils import database_exists, create_database
 
 
-
 class Database:
     def __init__(self):
         self.session = None
@@ -17,5 +16,3 @@ class Database:
         Session = sessionmaker(bind=self.engine)
         Session.configure(bind=self.engine)
         self.session = Session()
-
-
