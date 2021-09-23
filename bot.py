@@ -1,7 +1,6 @@
 import os
 from typing import List
 import slack
-from slack.errors import SlackApiError
 
 
 class SlackBot:
@@ -23,14 +22,9 @@ class SlackBot:
 
     def send_message(self):
         for user in self.id_list:
-            try:
-                self.client.chat_postMessage(channel=user,
-                                             text=f"Cześć! Ostatni call już za Tobą. Daj znać <@{self.kacper_id}>, jeżeli planujesz nie przedłużać abonamentu ",
-                                             token=self.bot_token)
-
-                self.client.chat_postMessage(channel=self.kacper_id,
-                                             text=f"Hej Kacper! Wysłałem wiadomość przypominającą do <@{user}>. Pozdro! ",
-                                             token=self.bot_token)
-
-            except SlackApiError as e:
-                assert e.response['error']
+            self.client.chat_postMessage(channel=user,
+                                         text=f"Cześć! Ostatni call już za Tobą. Daj znać <@{self.kacper_id}>, jeżeli planujesz nie przedłużać abonamentu ",
+                                         token=self.bot_token)
+            self.client.chat_postMessage(channel=self.kacper_id,
+                                         text=f"Hej Kacper! Wysłałem wiadomość przypominającą do <@{user}>. Pozdro! ",
+                                         token=self.bot_token)
