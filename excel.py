@@ -1,3 +1,5 @@
+import datetime
+
 from openpyxl import load_workbook
 import re
 from openpyxl.worksheet.worksheet import Worksheet
@@ -24,8 +26,10 @@ class SheetScraper:
                 name = str(row[1].value)
                 print(name)
                 last_meeting_index = self.find_last_meeting(row, start_index)
+                check_date = self.check_date_and_month(str(row[last_meeting_index].value))
+                print(check_date)
                 curr_month = self.check_neighbouring_meetings(row, last_meeting_index, idx)
-                if curr_month:
+                if curr_month and check_date:
                     self.check_if_student_exists(name, curr_month)
 
     def find_last_meeting(self, row, start_index) -> int:
@@ -36,6 +40,22 @@ class SheetScraper:
         last_fourth_meeting = row[start_index].value
         print(last_fourth_meeting)
         return start_index
+
+    def check_date_and_month(self, meeting_date):
+        """In Sheet is used dd-mm or d-mm format, this method avoids mistakes when someone
+         adds meetings before they happened """
+        dot_index = meeting_date.find('.')
+        meeting_day = int(meeting_date[:dot_index])
+        meeting_month = int(meeting_date[dot_index + 1:])
+        today_day = datetime.date.today().day
+        today_month = datetime.date.today().month
+        if today_month > meeting_month:
+            return True
+        elif today_day > meeting_day:
+            return True
+
+        return False
+
 
     def check_neighbouring_meetings(self, row, index, idx) -> str:
         if not re.match(DATE_REGEX, str(row[index + 1].value)) and re.match(DATE_REGEX, str(row[index - 1].value)):
