@@ -1,3 +1,4 @@
+from slack.errors import SlackApiError
 from bot import SlackBot
 from database import Database
 
@@ -13,10 +14,14 @@ def main() -> None:
     scraper = SheetScraper(loc)
     scraper.iterate_rows()
     list_of_students = scraper.list_of_students
+
     if list_of_students:
-        bot.get_users_list(list_of_students)
-        bot.send_message()
-        print("Messages sended!")
+        try:
+            bot.get_users_list(list_of_students)
+            bot.send_message()
+            print("Messages sended!")
+        except SlackApiError as e:
+            print(e)
     else:
         print("Everything is up to date")
 
