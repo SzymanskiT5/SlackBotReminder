@@ -49,9 +49,8 @@ class SheetScraper:
         meeting_month = int(meeting_date[dot_index + 1:])
         today_day = datetime.date.today().day
         today_month = datetime.date.today().month
-        if today_month > meeting_month:
-            return True
-        elif today_day > meeting_day:
+        if today_month == 1 and meeting_month == 12 or today_month > meeting_month or \
+                (today_month == meeting_month and today_day > meeting_day):
             return True
 
         return False
