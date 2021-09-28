@@ -42,6 +42,8 @@ After creating an app on Slack, add environment variable BOT_TOKEN to your os.
 ## How it works:
 
 
+![obraz](https://user-images.githubusercontent.com/79137973/135145674-3f0ae755-3cc5-4174-b8b1-e8355998d579.png)
+
 This is how a sheet format looks like. The first row is always 7 and column is 5. The next fourth meeting is always 4 columns
 ahead. The program iterates and checks where the last meeting was. For every fourth meeting, we need to check if there is one
 before( to avoid mistakes) and one after(to check if there is no new subscription) and check current date also to avoid
@@ -51,6 +53,9 @@ If the program has found a student with the last fourth meeting, it checks what 
 After that program needs to find the student in the database and compares the month in the database or creates new record.
 If the month in the database is other than in the sheet, the program sends messages to slack members and to the mentor.
 Adding a student to the database is to avoid sending a message to student every day.
+
+Bot message:
+![obraz](https://user-images.githubusercontent.com/79137973/135146115-203af86e-3795-4db0-a07c-c94561b4dc24.png)
 
 
 Now the mentor has autoreminder for his business . 
