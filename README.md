@@ -52,7 +52,7 @@ mistakes with filling future dates.
 If the program has found a student with the last fourth meeting, it checks what month in a row it is.
 After that program needs to find the student in the database and compares the month in the database or creates new record.
 If the month in the database is other than in the sheet, the program sends messages to slack members and to the mentor.
-Adding a student to the database is to avoid sending a message to student every day.
+Adding a student to the database is to avoid sending a message to student every day. There is also synchronization with googlesheets.
 
 Bot message:
 ![obraz](https://user-images.githubusercontent.com/79137973/135146115-203af86e-3795-4db0-a07c-c94561b4dc24.png)
