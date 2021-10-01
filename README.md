@@ -42,7 +42,7 @@ After creating an app on Slack, add environment variable BOT_TOKEN to your os.
 ## How it works:
 
 
-![obraz](https://user-images.githubusercontent.com/79137973/135145674-3f0ae755-3cc5-4174-b8b1-e8355998d579.png)
+![obraz](https://user-images.githubusercontent.com/79137973/135668629-ce454dfb-19e9-473a-bb80-8fe674694a02.png)
 
 This is how a sheet format looks like. The first row is always 7 and column is 5. The next fourth meeting is always 4 columns
 ahead. The program iterates and checks where the last meeting was. For every fourth meeting, we need to check if there is one
