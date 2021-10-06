@@ -37,7 +37,6 @@ First you need to have slack workspace and bot app connected to your space. Docu
 
 After creating an app on Slack, add environment variable BOT_TOKEN to your os.
 
-### Bot scopes:
 
 ## How it works:
 
